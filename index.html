@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ==================== CYBERSECURITY HARDENING HEADERS ==================== -->
+    <!-- Prevents MIME-type confusion attacks -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
+    <!-- Prevents Clickjacking by stopping the page from being loaded in an iframe -->
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    
+    <!-- Restricts resources to trusted origins to block Cross-Site Scripting (XSS) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com https://images.unsplash.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; script-src 'self';">
+    
+    <!-- Controls referrer information leakage -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- Enforces strict transport security policy -->
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <!-- ======================================================================== -->
+
+    <title>[Customer Name] | Professional Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f9fafb;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* Header / Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #4f46e5, #3b82f6);
+            color: #ffffff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        section h2 {
+            font-size: 22px;
+            color: #1f2937;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 8px;
+        }
+
+        section p {
+            color: #4b5563;
+            font-size: 15px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background-color: #e0e7ff;
+            color: #3730a3;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Try It Customization Section */
+        .try-section {
+            background: linear-gradient(135deg, #f8fafc, #edf2f7);
+            border: 2px dashed #cbd5e1;
+            text-align: center;
+        }
+
+        .try-btn {
+            display: inline-block;
+            background-color: #4f46e5;
+            color: #ffffff;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .try-btn:hover {
+            background-color: #4338ca;
+            transform: translateY(-2px);
+        }
+
+        /* Social & Contact Links Section */
+        .contact-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #1f2937;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .contact-card:hover {
+            background-color: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        .contact-card i {
+            font-size: 24px;
+        }
+
+        .contact-card .fa-instagram { color: #e1306c; }
+        .contact-card .fa-whatsapp { color: #25d366; }
+        .contact-card .fa-envelope { color: #ea4335; }
+        .contact-card .fa-linkedin { color: #0a66c2; }
+        .contact-card .fa-github { color: #333333; }
+
+        .contact-info span {
+            display: block;
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .contact-info strong {
+            font-size: 13px;
+            color: #1f2937;
+        }
+
+        /* WhatsApp Contact Banner */
+        .whatsapp-banner {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            border-radius: 0;
+        }
+
+        .whatsapp-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .whatsapp-banner h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            border: none;
+            color: #ffffff;
+        }
+
+        .whatsapp-banner p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            opacity: 0.95;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #ffffff;
+            color: #075e54;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #f1f1f1;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400" alt="Customer Profile Picture">
+        <h1>[Customer Full Name]</h1>
+        <p>[Customer Professional Title or Tagline]</p>
+    </header>
+
+    <div class="container">
+        <!-- About Section -->
+        <section>
+            <h2>About Me</h2>
+            <p>[Customer can write a short introduction about their background, passion, and what they do here.]</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section>
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">[Skill 1]</span>
+                <span class="skill-tag">[Skill 2]</span>
+                <span class="skill-tag">[Skill 3]</span>
+                <span class="skill-tag">[Skill 4]</span>
+            </div>
+        </section>
+
+        <!-- Contact & Social Details Section -->
+        <section>
+            <h2>Connect With Me</h2>
+            <p>Reach out through the customer's personal handles below:</p>
+            <div class="contact-links">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/[CustomerWhatsAppNumber]" class="contact-card" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="contact-info">
+                        <span>WhatsApp</span>
+                        <strong>[Add WhatsApp Number]</strong>
+                    </div>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://instagram.com/[CustomerInstagramID]" class="contact-card" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                    <div class="contact-info">
+                        <span>Instagram</span>
+                        <strong>[@InstagramID]</strong>
+                    </div>
+                </a>
+
+                <!-- Gmail -->
+                <a href="mailto:[CustomerEmail@gmail.com]" class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-info">
+                        <span>Email (Gmail)</span>
+                        <strong>[Add Gmail Address]</strong>
+                    </div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/[CustomerLinkedIn]" class="contact-card" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                    <div class="contact-info">
+                        <span>LinkedIn</span>
+                        <strong>[Add LinkedIn Profile]</strong>
+                    </div>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/[CustomerGitHub]" class="contact-card" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                    <div class="contact-info">
+                        <span>GitHub</span>
+                        <strong>[Add GitHub Handle]</strong>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Try It Customization Section -->
+        <section class="try-section">
+            <h2>Want to make this your own?</h2>
+            <p>Try customizing this portfolio by inserting your own name, photo link, skills, and social details into the code!</p>
+            <a href="#whatsapp-contact" class="try-btn">
+                <i class="fas fa-code"></i> Try It With Your Details
+            </a>
+        </section>
+    </div>
+
+    <!-- WhatsApp Contact Banner -->
+    <section id="whatsapp-contact" class="whatsapp-banner">
+        <div class="whatsapp-container">
+            <h3>Want a website like this?</h3>
+            <p>Let's build your custom website together!</p>
+            <a href="https://wa.me/919961010333?text=Hi,%20I%20want%20a%20website%20like%20your%20portfolio!" 
+               class="whatsapp-btn" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp (9961010333)
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>
